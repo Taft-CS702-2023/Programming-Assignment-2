@@ -1,0 +1,10 @@
+#include <stdio.h>
+#include <stdlib.h>
+int main()
+{
+    pid_t p;
+    p = fork();
+    printf("start");
+    wait(NULL);
+    printf("end");
+}
