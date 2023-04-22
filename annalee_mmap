@@ -1,0 +1,17 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <sys/mman.h>
+#include <fcntl.h>
+#include <unistd.h>
+
+#define FILENAME "txt"
+#define FILESIZE 1000 
+
+int main() {
+    int fd; 
+    char *add; 
+    
+    fd = open(FILENAME, O_RDWR | O_CREAT, 0666);
+    add = mmap(NULL, FILESIZE, PROT_READ | PROT_WRITE, MAP_SHARED, fd, 0);
+   close(fd);
+}
